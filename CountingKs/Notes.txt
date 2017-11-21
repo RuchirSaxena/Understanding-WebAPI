@@ -1,0 +1,75 @@
+APS.NET WEB API
+=================
+
+
+For Making your object Camel Cased
+=====================================
+in WebApiConfig.cs ->
+
+ var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().FirstOrDefault();
+ jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
+ Dependency Injection
+ ======================
+ We can use dependency resolver like Ninject for Dependency injection
+
+
+ Better way to write below code :
+ ================================
+   var results = _repo.GetAllFoodsWithMeasures()
+                    .OrderBy(f => f.Description)
+                    .Take(25)
+                    .ToList()
+                    .Select(f => new FoodModel()
+                    {
+                        Description = f.Description,
+                        Measures = f.Measures.Select(m => 
+                        new MeasureModel
+                        {
+                            Description = m.Description,
+                            Calories = m.Calories
+                        })
+                    });
+            return results;
+
+//Better Way of Implementing above code is creating a seperate class 
+and delegating the responsibility 
+======================================
+ public class ModelFactory
+    {
+        public FoodModel Create(Food food)
+        {
+            return new FoodModel()
+            {
+                Description = food.Description,
+                Measures = food.Measures.Select(m =>
+                Create(m))
+            };
+                   
+        }
+        public MeasureModel Create(Measure measure)
+        {
+            return new MeasureModel()
+            {
+                Description = measure.Description,
+                Calories = measure.Calories
+            };
+        }
+    }
+
+
+  
+
+
+ Note: In WebApi Controller its manadatory to have 
+ parameterless constructor
+
+
+ Defining Routes
+ ==================
+  config.Routes.MapHttpRoute(
+               name: "Food",
+               routeTemplate: "api/nutrition/{controller}/{id}",
+               defaults: new { controller="Foods" , id = RouteParameter.Optional },
+			  constraints:new {id=int}
+           );

@@ -23,7 +23,15 @@ namespace CountingKs.Data
 
     public IQueryable<Food> GetAllFoodsWithMeasures()
     {
-      return _ctx.Foods.Include("Measures");
+            try
+            {
+                return _ctx.Foods.Include("Measures");
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+  
     }
 
     public IQueryable<Food> FindFoodsWithMeasures(string searchString)

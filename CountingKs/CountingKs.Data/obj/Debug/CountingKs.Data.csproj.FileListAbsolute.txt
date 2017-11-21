@@ -6,3 +6,10 @@ C:\Users\ruchir.saxena\Downloads\implementing-restful-aspdotnet-web-api\2-restfu
 C:\Users\ruchir.saxena\Downloads\implementing-restful-aspdotnet-web-api\2-restful-aspdotnet-m1-exercise-files\Baseline\CountingKs\CountingKs.Data\obj\Debug\CountingKs.Data.csprojResolveAssemblyReference.cache
 C:\Users\ruchir.saxena\Downloads\implementing-restful-aspdotnet-web-api\2-restful-aspdotnet-m1-exercise-files\Baseline\CountingKs\CountingKs.Data\obj\Debug\CountingKs.Data.dll
 C:\Users\ruchir.saxena\Downloads\implementing-restful-aspdotnet-web-api\2-restful-aspdotnet-m1-exercise-files\Baseline\CountingKs\CountingKs.Data\obj\Debug\CountingKs.Data.pdb
+D:\Ruchir\VSCode Projects\Understanding-WebAPI\CountingKs\CountingKs.Data\bin\Debug\CountingKs.Data.dll.config
+D:\Ruchir\VSCode Projects\Understanding-WebAPI\CountingKs\CountingKs.Data\bin\Debug\CountingKs.Data.dll
+D:\Ruchir\VSCode Projects\Understanding-WebAPI\CountingKs\CountingKs.Data\bin\Debug\CountingKs.Data.pdb
+D:\Ruchir\VSCode Projects\Understanding-WebAPI\CountingKs\CountingKs.Data\bin\Debug\EntityFramework.dll
+D:\Ruchir\VSCode Projects\Understanding-WebAPI\CountingKs\CountingKs.Data\bin\Debug\EntityFramework.xml
+D:\Ruchir\VSCode Projects\Understanding-WebAPI\CountingKs\CountingKs.Data\obj\Debug\CountingKs.Data.dll
+D:\Ruchir\VSCode Projects\Understanding-WebAPI\CountingKs\CountingKs.Data\obj\Debug\CountingKs.Data.pdb
