@@ -26,26 +26,34 @@ namespace CountingKs.Controllers
 
 
         [HttpGet]
-        public IEnumerable<FoodModel> Get()
+        public IEnumerable<FoodModel> Get(bool includeMeasures = false)
         {
+            IQueryable<Food> data = null;
+            if (includeMeasures)
+            {
+                data = _repo.GetAllFoods();
+            }
+            else
+            {
+                data = _repo.GetAllFoodsWithMeasures();
+            }
 
-            var results = _repo.GetAllFoodsWithMeasures()
-                    .OrderBy(f => f.Description)
-                    .Take(25)
-                    .ToList()
-                    //.Select(f => new FoodModel()
-                    //{
-                    //    Description = f.Description,
-                    //    Measures = f.Measures.Select(m =>
-                    //    new MeasureModel
-                    //    {
-                    //        Description = m.Description,
-                    //        Calories = m.Calories
-                    //    })
-                    //});
-                    //OR Below Code
-                    .Select(f => _modelFactory.Create(f));
-            return results;
+          var result= data.OrderBy(f => f.Description)
+              .Take(25)
+              .ToList()
+              //.Select(f => new FoodModel()
+              //{
+              //    Description = f.Description,
+              //    Measures = f.Measures.Select(m =>
+              //    new MeasureModel
+              //    {
+              //        Description = m.Description,
+              //        Calories = m.Calories
+              //    })
+              //});
+              //OR Below Code
+              .Select(f => _modelFactory.Create(f));
+            return result;
 
         }
 
